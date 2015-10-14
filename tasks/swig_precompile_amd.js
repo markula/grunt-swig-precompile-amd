@@ -110,6 +110,10 @@ module.exports = function(grunt) {
       var src = path.resolve(f.src[0]);
 
 
+      var r = swig.precompile(str, { filename: file, locals: ctx }).tpl.toString().replace('anonymous', '');
+
+      console.dir(r);
+
       // Write the destination file.
       grunt.file.write(
         dest,
